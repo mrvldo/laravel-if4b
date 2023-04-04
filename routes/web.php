@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FakultasController;
 use App\Http\Controllers\ProdiController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,27 +15,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/profil',function(){
-    return "Halaman Profil";
-});
+// Route::get('/profil',function(){
+//     return "Halaman Profil";
+// });
 
-Route::get('/dosen', function(){
-    return view("dosen");
-});
+// Route::get('/dosen', function(){
+//     return view("dosen");
+// });
 
-Route::get('/dosen/index', function(){
-    return view('dosen,index');
-});
+// Route::get('/dosen/index', function(){
+//     return view('dosen,index');
+// });
 
-Route::get('/fakultas', function(){
-    //return view('fakultas,index',['fikr' => 'Fakultas Ilmu Komputer dan Rekayasa']);
-    return view('fakultas.index') -> with('dataFakultas',['FIKR','FEB'
-]);
-});
+// Route::get('/fakultas', function(){
+//     //return view('fakultas,index',['fikr' => 'Fakultas Ilmu Komputer dan Rekayasa']);
+//     return view('fakultas.index') -> with('dataFakultas',['FIKR','FEB'
+// ]);
+// });
 
 Route::get('prodi', [ProdiController::class, 'index'])->name('prodi');
-
+Route::resource('fakultas', FakultasController::class);
